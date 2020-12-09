@@ -82,6 +82,8 @@ void GuessGameComputer()
 		
 		std::cout << "Ummm... is it " << cpuNum << "?";
 		system("pause");
+		std::cout << "1. "; 
+		std::cin >> "";
 	}
 }
 	
