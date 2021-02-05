@@ -59,12 +59,13 @@ void GuessGamePlayer()
 //Game where computer guesses a number
 void GuessGameComputer()
 {
+	int input;
 	int min = 0;
 	int mid = 0;
 	int max = 0;
 	int cpuNum = 0;
 	bool cpuWins = false;
-
+	
 	std::cout << "Welcome to the guessing game! Please select the minimum, middle, and max values."
 		<< " I will try to guess the right number" << std::endl;
 	std::cout << "Min value: "; 
@@ -78,12 +79,37 @@ void GuessGameComputer()
 
 	while (cpuWins == false)
 	{
-		cpuNum = cpuNum + mid;
+		//Makes the computer pick a number that is less than or equal to the max number given
+		cpuNum = rand()%max;
 		
-		std::cout << "Ummm... is it " << cpuNum << "?";
-		system("pause");
-		std::cout << "1. "; 
-		std::cin >> "";
+		std::cout << "Ummm... is it " << cpuNum << "?" << std::endl;
+		
+		std::cout << "1. No go higher." << std::endl;
+		std::cout << "2. No go lower." << std::endl;
+		std::cout << "3.Yes that's it!" << std::endl;
+		std::cin >> input;
+
+		if (input == 1)
+		{
+			system("cls");
+			std::cout << "Higher? Ok then.";
+			cpuNum = rand() % max ;
+		}
+		else if (input == 2)
+		{
+			system("cls");
+			std::cout << "Lower? Gotcha.";
+			cpuNum = rand() % mid;
+		}
+		else if (input == 3)
+		{
+			system("cls");
+			std::cout << "Woooooooo I got it!!!! Thanks for playing!!";
+			cpuWins == true;
+			break;
+		}
+		
+
 	}
 }
 	
